@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-      
+
       - run: npm ci
 
       - name: ESLint
@@ -30,14 +30,14 @@ jobs:
     name: Test + Coverage
     runs-on: ubuntu-latest
     strategy:
-      matrix: 
+      matrix:
         node-version: [18.x, 20.x]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}
-          cache:  'npm'
+          cache: 'npm'
       - run: npm ci
 
       - name: Run tests with coverage
@@ -50,7 +50,7 @@ jobs:
           name: coverage-report
           path: coverage/
 
-  build: 
+  build:
     name: Build verification
     runs-on: ubuntu-latest
     needs: [lint, test]
@@ -62,8 +62,8 @@ jobs:
 
   quality-gate:
     name: Quality gate
-    needs:  [lint, test, build]
+    needs: [lint, test, build]
     runs-on: ubuntu-latest
     steps:
       - name: All checks passed
-        run:  echo "✅ Lint, tests, and build all passed — safe to merge!"
+        run: echo "✅ Lint, tests, and build all passed — safe to merge!"
