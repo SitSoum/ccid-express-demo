@@ -1,0 +1,21 @@
+{
+  "name": "cicd-express-demo",
+  "version": "1.0.0",
+  "description": "Starter API for Week 2 Day 3 - CI Workflows (end-of-Day-2 state)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "cross-env NODE_ENV=test node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  }
+}
